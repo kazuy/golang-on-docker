@@ -15,3 +15,13 @@ $ docker run --rm -it golang-on-docker ash
 go version go1.12.6 linux/amd64
 ```
 
+## Directory
+
+```
+.
+├── Dockerfile
+├── README.md
+├── bin
+├── pkg
+└── src
+```
