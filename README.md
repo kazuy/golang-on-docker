@@ -1,20 +1,5 @@
 # Golang on Docker
 
-## Build docker image
-
-```
-$ docker build -t golang-on-docker .
-```
-
-## Docker run
-
-```
-$ docker run --rm -it golang-on-docker ash
-
-/go # go version
-go version go1.12.6 linux/amd64
-```
-
 ## Directory
 
 ```
@@ -25,17 +10,20 @@ go version go1.12.6 linux/amd64
 │   └── main
 ├── go.sh
 ├── pkg
-│   └── linux_amd64
-│       └── github.com
-│           └── kazuy
-│               └── gosample.a
 └── src
-    ├── github.com
-    │   └── kazuy
-    │       └── gosample
-    │           └── gosample.go
     └── main
+        ├── go.mod
+        ├── go.sum
         └── main.go
+```
+
+## Docker build and run
+
+```
+$ sh ./go.sh
+
+docker build -t golang-on-docker .
+docker run --rm -it golang-on-docker ash
 ```
 
 ## Golang build
@@ -45,10 +33,10 @@ $ cd $GOPATH/src/main
 $ go install
 ```
 
-## Golang get package
-```
-$ go get github.com/xxxx/xxxx
+## Golang modules
 
-ex)
-$ go get github.com/kazuy/gosample
 ```
+$ cd $GOPATH/src/main
+$ go mod init
+```
+
